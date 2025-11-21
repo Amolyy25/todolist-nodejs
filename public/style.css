@@ -1,0 +1,227 @@
+/* Reset et configuration de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Container principal */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* En-tête */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1rem;
+}
+
+/* Section d'ajout de todo */
+.add-todo-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#todoInput:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#todoInput::placeholder {
+    color: #aaa;
+}
+
+/* Boutons */
+.btn-add {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-add:active {
+    transform: translateY(0);
+}
+
+/* Container des todos */
+.todos-container {
+    margin-bottom: 20px;
+}
+
+/* Liste des todos */
+.todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.todo-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+/* Checkbox pour marquer comme complété */
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+/* Texte du todo */
+.todo-text {
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+    word-break: break-word;
+}
+
+/* Todo complété */
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* Bouton supprimer */
+.btn-delete {
+    padding: 8px 15px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: #ff3838;
+    transform: scale(1.05);
+}
+
+.btn-delete:active {
+    transform: scale(0.95);
+}
+
+/* État vide */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    display: none; /* Caché par défaut, affiche avec JavaScript */
+}
+
+.empty-state.show {
+    display: block;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.empty-subtitle {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .add-todo-section {
+        flex-direction: column;
+    }
+
+    .btn-add {
+        width: 100%;
+    }
+}
+
+
+
